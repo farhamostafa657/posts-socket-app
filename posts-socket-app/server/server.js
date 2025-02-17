@@ -41,4 +41,12 @@ io.on("connection", (socket) => {
     const posts = await postsModel.find();
     socket.emit("replyWithPosts", posts);
   });
+
+  socket.on("search", async (titleData) => {
+    const posts = await postsModel.find({
+      title: { $regex: titleData, $options: "i" },
+    });
+
+    socket.emit("replyWithPosts", posts.length > 0 ? posts : "No Posts found");
+  });
 });

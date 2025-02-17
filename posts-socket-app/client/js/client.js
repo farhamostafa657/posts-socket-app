@@ -2,6 +2,7 @@ const socket = io("http://localhost:3000/");
 
 const title = document.getElementById("title");
 const desc = document.getElementById("desc");
+const searchInp = document.getElementById("searchInp");
 
 socket.emit("load");
 function addPost() {
@@ -35,4 +36,9 @@ function display(posts) {
 
 function deletePost(id) {
   socket.emit("deletePost", id);
+}
+
+function serchPostFunc() {
+  const title = searchInp.value;
+  socket.emit("search", title);
 }
