@@ -1,0 +1,28 @@
+body {
+  font-family: "Montserrat", serif;
+  background-color: #131722;
+  color: white;
+}
+
+input,
+textarea {
+  background-color: #131722 !important;
+  color: white !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  background-color: #131722 !important;
+
+  color: white !important;
+}
+
+/* li {
+  background-color: #a8a8a83d;
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: auto;
+} */
