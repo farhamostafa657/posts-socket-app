@@ -26,13 +26,13 @@ function display(posts) {
           <div class="bg-white shadow rounded-1 align-items-center d-flex flex-column justify-content-center">
             <p class="text-dark mb-3">${posts[i].title}</p>
           <p class="text-dark mb-3">${posts[i].description}</p>
-          <button class="btn btn-danger mb-3" onclick="deletePost()">Delete</button>
+          <button class="btn btn-danger mb-3" onclick="deletePost('${posts[i]._id}')">Delete</button>
           </div>
         </div>`;
   }
   document.getElementById("postsContainer").innerHTML = data;
 }
 
-// function deletePost(id){
-
-// }
+function deletePost(id) {
+  socket.emit("deletePost", id);
+}

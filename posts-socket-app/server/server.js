@@ -35,4 +35,10 @@ io.on("connection", (socket) => {
     console.log(posts);
     socket.emit("replyWithPosts", posts);
   });
+
+  socket.on("deletePost", async (id) => {
+    const deletesd = await postsModel.findByIdAndDelete(id);
+    const posts = await postsModel.find();
+    socket.emit("replyWithPosts", posts);
+  });
 });
